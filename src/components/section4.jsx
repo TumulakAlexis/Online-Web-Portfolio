@@ -8,6 +8,7 @@ import BSDK from '../assets/Section 4 Gallery/bsdk.png';
 import Masterpiece from '../assets/Section 4 Gallery/masterpiece.png';
 import Registration from '../assets/Section 4 Gallery/registration.png';
 import Surprise from '../assets/Section 4 Gallery/surprise.png';
+import Showreel from '../assets/showreel.mp4'
 
 const Section4 = () => {
   const tileVariants = {
@@ -54,12 +55,8 @@ const Section4 = () => {
           className="s4-tile tile-video-big"
         >
           <video autoPlay muted loop playsInline className="s4-video-element">
-            <source src="YOUR_VIDEO.mp4" type="video/mp4" />
+            <source src={Showreel} type="video/mp4" />
           </video>
-          
-          <div className="glass-logo-container">
-            <h1 className="pold-logo">Pold</h1>
-          </div>
         </motion.div>
       </motion.div>
 
