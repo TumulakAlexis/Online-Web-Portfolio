@@ -1,0 +1,94 @@
+.section-6 {
+  background-color: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.s6-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.s6-main-title {
+  color: #FF4500;
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.s6-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 50px;
+  align-items: flex-end; 
+}
+
+/* Updated Awards Wrapper for larger icons */
+.s6-awards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 15px; /* Increased gap for larger images */
+  margin-bottom: 20px;
+  
+  /* This width controls when the 3rd award pops to the top row. 
+     Adjust this if you want them wider or tighter. */
+  max-width: 320px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.s6-award-img {
+  /* Increased from 100px to 140px */
+  width: 140px; 
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.s6-award-img:hover {
+  transform: scale(1.1);
+}
+
+.s6-image-frame {
+  border: 1px solid #000;
+  line-height: 0;
+}
+
+.s6-film-img {
+  width: 100%;
+  height: auto;
+}
+
+.s6-film-name {
+  color: #FF4500;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 15px 0 0 0;
+}
+
+.s6-festival-name {
+  color: #666;
+  font-size: 0.8rem;
+  margin-bottom: 25px;
+}
+
+.s6-qr-box {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 10px auto;
+}
+
+.s6-qr-box img {
+  width: 100%;
+  filter: invert(36%) sepia(94%) saturate(7414%) hue-rotate(355deg) brightness(101%) contrast(101%);
+}
+
+.s6-scan-label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #FF4500;
+  text-transform: uppercase;
+}

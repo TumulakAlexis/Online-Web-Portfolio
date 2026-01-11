@@ -1,0 +1,98 @@
+.section3-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 100px 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+  overflow: hidden; /* Important so dragged items don't cause scrollbars */
+}
+
+.s3-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 100px;
+}
+
+.s3-title-bold {
+  font-family: 'Passion One', sans-serif;
+  font-size: clamp(60px, 8vw, 100px);
+  color: #FBB03B;
+  line-height: 0.8;
+}
+
+.s3-title-script {
+  font-family: 'Petit Formal Script', 'cursive'; 
+  font-style: italic;
+  font-size: 50px;
+  color: #000;
+  margin-top: -10px;
+}
+
+.s3-tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.s3-tag {
+  background-color: #FBB03B;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 500;
+  user-select: none; /* Prevents text selection while dragging */
+  box-shadow: 0 4px 15px rgba(251, 176, 59, 0.2);
+}
+
+.s3-tag:active {
+  cursor: grabbing;
+}
+
+.s3-subtitle {
+    color: #000;
+    text-align: right;
+}
+
+
+.s3-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Matches the top alignment of the title */
+  margin-bottom: 130px;
+}
+
+.s3-action-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Pushes button and text to the right edge */
+  text-align: right;
+  max-width: 280px; /* Forces the text to wrap like in the image */
+  margin-top: 50px; /* Adjust this to align with the first line of the title */
+}
+
+.s3-subtitle {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 20px; /* Space between text and button */
+}
+
+.s3-book-btn {
+  width: fit-content; /* Prevents button from stretching */
+  /* Re-use your orange styling here */
+  background-color: #FBB03B;
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-weight: bold;
+}

@@ -1,0 +1,280 @@
+.section2-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FF4500; /* Main Orange Theme */
+  padding: 80px 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  scroll-snap-align: start;
+}
+
+.s2-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-rows: auto auto;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Portrait Card */
+.s2-portrait-card {
+  height: 400px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.s2-portrait {
+  width: 90%;
+  height: auto;
+}
+
+/* Bio Content */
+.s2-hello {
+  font-family: 'Passion One', sans-serif;
+  font-size: 140px;
+  line-height: 0.8;
+  margin-bottom: 20px;
+}
+
+.s2-intro {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+.s2-contact-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-tag {
+  background: #FFD700; /* Yellow tags */
+  color: #FF4500;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Skill & Experience Cards */
+.s2-skills-card, .s2-experience-card {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  padding: 30px;
+}
+
+.s2-skills-card h3, .s2-experience-card h3 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill-icon {
+  background: white;
+  color: #FF4500;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 900;
+}
+
+.skill-bar-bg {
+  width: 100px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: white;
+  border-radius: 4px;
+}
+
+/* Timeline */
+.experience-timeline {
+  position: relative;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.timeline-connector {
+  position: absolute;
+  top: 7px; /* Centers line behind the 14px dot */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  z-index: 1;
+}
+
+.timeline-items {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-point {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.timeline-year { font-size: 10px; opacity: 0.8; }
+.timeline-company { font-size: 14px; margin: 5px 0; font-weight: bold; }
+.timeline-role { font-size: 12px; opacity: 0.7; }
+
+/* Mobile View */
+@media (max-width: 900px) {
+  .s2-grid { grid-template-columns: 1fr; }
+  .s2-hello { font-size: 80px; }
+  .timeline-items { flex-direction: column; gap: 30px; }
+  .timeline-connector { display: none; }
+}
+
+
+/* Animationsssss */
+
+/* --- Animation Keyframes --- */
+
+/* Smooth fade and slide up */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scale up effect for the portrait and dots */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* The line "drawing" from left to right */
+@keyframes drawLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* --- Applying Animations --- */
+
+/* Hello! Text */
+.s2-hello {
+  animation: slideUp 0.8s ease forwards;
+}
+
+/* Portrait Card */
+.s2-portrait-card {
+  animation: popIn 1s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+  opacity: 0;
+}
+
+/* Info and Bio */
+.s2-intro, .s2-contact-tags {
+  animation: slideUp 0.8s ease 0.2s forwards;
+  opacity: 0;
+}
+
+/* Skill & Experience Cards */
+.s2-skills-card {
+  animation: slideUp 0.8s ease 0.4s forwards;
+  opacity: 0;
+}
+
+.s2-experience-card {
+  animation: slideUp 0.8s ease 0.6s forwards;
+  opacity: 0;
+}
+
+/* The Connector Line Drawing Effect */
+.timeline-connector {
+  animation: drawLine 1.5s cubic-bezier(0.65, 0, 0.35, 1) 1s forwards;
+  width: 0; /* Starts at 0 for the animation */
+  transform-origin: left;
+}
+
+/* Staggered dots appearance */
+.timeline-point:nth-child(1) .dot { animation: popIn 0.5s ease 1.2s forwards; opacity: 0; }
+.timeline-point:nth-child(2) .dot { animation: popIn 0.5s ease 1.5s forwards; opacity: 0; }
+.timeline-point:nth-child(3) .dot { animation: popIn 0.5s ease 1.8s forwards; opacity: 0; }
+
+/* --- Animation Definitions --- */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes growLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes popDot {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* --- Initial States (Invisible before animation) --- */
+.s2-hello, .s2-intro, .s2-contact-tags, 
+.s2-portrait-card, .s2-skills-card, .s2-experience-card, .dot {
+  opacity: 0;
+}
+
+/* --- Triggered Animations --- */
+.animate-start .s2-hello { animation: slideUpFade 0.6s ease forwards; }
+.animate-start .s2-intro { animation: slideUpFade 0.6s ease 0.2s forwards; }
+.animate-start .s2-contact-tags { animation: slideUpFade 0.6s ease 0.4s forwards; }
+.animate-start .s2-portrait-card { animation: slideUpFade 0.8s ease 0.3s forwards; }
+.animate-start .s2-skills-card { animation: slideUpFade 0.8s ease 0.5s forwards; }
+.animate-start .s2-experience-card { animation: slideUpFade 0.8s ease 0.6s forwards; }
+
+/* Timeline specific animations */
+.animate-start .timeline-connector {
+  animation: growLine 1s ease 1s forwards;
+  width: 0;
+}
+
+.animate-start .timeline-point:nth-child(1) .dot { animation: popDot 0.4s ease 1.2s forwards; }
+.animate-start .timeline-point:nth-child(2) .dot { animation: popDot 0.4s ease 1.4s forwards; }
+.animate-start .timeline-point:nth-child(3) .dot { animation: popDot 0.4s ease 1.6s forwards; }
