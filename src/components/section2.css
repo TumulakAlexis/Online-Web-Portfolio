@@ -235,3 +235,80 @@
   .s2-hello { font-size: 60px; }
   .s2-skills-card, .s2-experience-card { padding: 20px; }
 }
+
+/* --- iPhone Pro Max, Pro, and Standard (430px and below) --- */
+@media (max-width: 430px) {
+  /* 1. Reduce overall padding to give content more room */
+  .section2-container {
+    padding: 40px 15px;
+  }
+
+  /* 2. Shrink the massive Hello text so it doesn't leak */
+  .s2-hello {
+    font-size: 55px; /* Scaled down significantly */
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+  }
+
+  /* 3. Scale down the Intro text */
+  .s2-intro {
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 90%;
+  }
+
+  /* 4. Shrink Cards and their Headers */
+  .s2-skills-card, 
+  .s2-experience-card {
+    padding: 20px 15px;
+    border-radius: 20px;
+  }
+
+  .s2-skills-card h3, 
+  .s2-experience-card h3 {
+    font-size: 24px; /* Smaller headers */
+    margin-bottom: 15px;
+  }
+
+  /* 5. Smaller Skill Items */
+  .skill-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .skill-bar-bg {
+    width: 80px; /* Shortened bars */
+  }
+
+  /* 6. Timeline Font Scaling */
+  .timeline-company {
+    font-size: 13px;
+  }
+
+  .timeline-role {
+    font-size: 11px;
+  }
+
+  /* 7. Contact Tags Scaling */
+  .contact-tag {
+    padding: 6px 15px;
+    font-size: 12px;
+  }
+
+  /* 8. Logo scaling (If the logo is inside this section) */
+  .s1-logo {
+    font-size: 20px !important;
+  }
+}
+
+/* --- Extra Small Devices (iPhone SE / 375px and below) --- */
+@media (max-width: 375px) {
+  .s2-hello {
+    font-size: 48px;
+  }
+  
+  .s2-portrait-card {
+    height: 250px; /* Shrink photo area to save vertical space */
+  }
+}
