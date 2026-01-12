@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './Section5.css';
+import './section5.css';
 
 // Import your logos
 import Ramsa from '../assets/Logo Gallery/ramsa.png'

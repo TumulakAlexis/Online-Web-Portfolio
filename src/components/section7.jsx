@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './Section7.css';
+import './section7.css';
 
 // Asset Imports
 import BayadMockup from '../assets/mobile/bayadmockup.png';

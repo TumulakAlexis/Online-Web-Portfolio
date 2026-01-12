@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './Section3.css';
+import './section3.css';
 
 const Section3 = () => {
   const services = [

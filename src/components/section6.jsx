@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './Section6.css';
+import './section6.css';
 import Pabiboy from '../assets/films/pabiboy.png'
 import CampusCrush from '../assets/films/campuscrush.png'
 import AlZimeShow from '../assets/films/alzimeshow.png'

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './Section4.css';
+import './section4.css';
 
 // Asset Imports
 import Pinning from '../assets/Section 4 Gallery/pinning.png';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './Section8.css';
+import './section8.css';
 
 // Asset Imports
 import LogoImg from '../assets/logo.png'; 
