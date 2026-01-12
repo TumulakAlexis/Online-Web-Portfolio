@@ -3,6 +3,8 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  /* Prevent horizontal overflow at the root level */
+  overflow-x: hidden; 
 }
 
 * {
@@ -11,17 +13,23 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
-  display: block;
-  min-width: 100vw;
+  padding: 0;
+  /* 100% width is safer than 100vw for mobile to avoid scrollbar width issues */
+  width: 100%; 
   min-height: 100vh;
+  /* This is the master switch to stop horizontal wobbling */
+  overflow-x: hidden; 
+  position: relative;
 }
 
 .landing-wrapper {
   width: 100%;
-  height: 100vh;
+  /* If this is your main scroll container, keep auto, 
+     but ensure it doesn't leak horizontally */
   overflow-y: auto;
+  overflow-x: hidden; 
   background-color: #fcfcfc;
 }
 
