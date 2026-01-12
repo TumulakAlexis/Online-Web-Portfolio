@@ -1,13 +1,15 @@
+/* --- Base Container --- */
 .section2-container {
   width: 100%;
   min-height: 100vh;
-  background-color: #FF4500; /* Main Orange Theme */
+  background-color: #FF4500;
   padding: 80px 5%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   scroll-snap-align: start;
+  overflow: hidden;
 }
 
 .s2-grid {
@@ -19,7 +21,7 @@
   width: 100%;
 }
 
-/* Portrait Card */
+/* --- Content Elements --- */
 .s2-portrait-card {
   height: 400px;
   display: flex;
@@ -32,7 +34,6 @@
   height: auto;
 }
 
-/* Bio Content */
 .s2-hello {
   font-family: 'Passion One', sans-serif;
   font-size: 140px;
@@ -47,29 +48,16 @@
   max-width: 600px;
 }
 
-.s2-contact-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.contact-tag {
-  background: #FFD700; /* Yellow tags */
-  color: #FF4500;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-/* Skill & Experience Cards */
-.s2-skills-card, .s2-experience-card {
+/* --- Cards & Skills --- */
+.s2-skills-card, 
+.s2-experience-card {
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 30px;
   padding: 30px;
 }
 
-.s2-skills-card h3, .s2-experience-card h3 {
+.s2-skills-card h3, 
+.s2-experience-card h3 {
   font-size: 32px;
   margin-bottom: 25px;
 }
@@ -103,7 +91,6 @@
   height: 8px;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 4px;
-  margin-top: 4px;
 }
 
 .skill-bar-fill {
@@ -112,7 +99,7 @@
   border-radius: 4px;
 }
 
-/* Timeline */
+/* --- Timeline --- */
 .experience-timeline {
   position: relative;
   margin-top: 40px;
@@ -121,12 +108,13 @@
 
 .timeline-connector {
   position: absolute;
-  top: 7px; /* Centers line behind the 14px dot */
+  top: 7px;
   left: 0;
-  width: 100%;
+  width: 0;
   height: 2px;
   background-color: white;
   z-index: 1;
+  transform-origin: left;
 }
 
 .timeline-items {
@@ -154,92 +142,23 @@
 .timeline-company { font-size: 14px; margin: 5px 0; font-weight: bold; }
 .timeline-role { font-size: 12px; opacity: 0.7; }
 
-/* Mobile View */
-@media (max-width: 900px) {
-  .s2-grid { grid-template-columns: 1fr; }
-  .s2-hello { font-size: 80px; }
-  .timeline-items { flex-direction: column; gap: 30px; }
-  .timeline-connector { display: none; }
+/* --- Tags --- */
+.s2-contact-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-
-/* Animationsssss */
+.contact-tag {
+  background: #FFD700;
+  color: #FF4500;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
 
 /* --- Animation Keyframes --- */
-
-/* Smooth fade and slide up */
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Scale up effect for the portrait and dots */
-@keyframes popIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* The line "drawing" from left to right */
-@keyframes drawLine {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-/* --- Applying Animations --- */
-
-/* Hello! Text */
-.s2-hello {
-  animation: slideUp 0.8s ease forwards;
-}
-
-/* Portrait Card */
-.s2-portrait-card {
-  animation: popIn 1s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
-  opacity: 0;
-}
-
-/* Info and Bio */
-.s2-intro, .s2-contact-tags {
-  animation: slideUp 0.8s ease 0.2s forwards;
-  opacity: 0;
-}
-
-/* Skill & Experience Cards */
-.s2-skills-card {
-  animation: slideUp 0.8s ease 0.4s forwards;
-  opacity: 0;
-}
-
-.s2-experience-card {
-  animation: slideUp 0.8s ease 0.6s forwards;
-  opacity: 0;
-}
-
-/* The Connector Line Drawing Effect */
-.timeline-connector {
-  animation: drawLine 1.5s cubic-bezier(0.65, 0, 0.35, 1) 1s forwards;
-  width: 0; /* Starts at 0 for the animation */
-  transform-origin: left;
-}
-
-/* Staggered dots appearance */
-.timeline-point:nth-child(1) .dot { animation: popIn 0.5s ease 1.2s forwards; opacity: 0; }
-.timeline-point:nth-child(2) .dot { animation: popIn 0.5s ease 1.5s forwards; opacity: 0; }
-.timeline-point:nth-child(3) .dot { animation: popIn 0.5s ease 1.8s forwards; opacity: 0; }
-
-/* --- Animation Definitions --- */
 @keyframes slideUpFade {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
@@ -255,13 +174,13 @@
   to { transform: scale(1); opacity: 1; }
 }
 
-/* --- Initial States (Invisible before animation) --- */
+/* --- Initial States --- */
 .s2-hello, .s2-intro, .s2-contact-tags, 
 .s2-portrait-card, .s2-skills-card, .s2-experience-card, .dot {
   opacity: 0;
 }
 
-/* --- Triggered Animations --- */
+/* --- JS Triggered Animations (animate-start) --- */
 .animate-start .s2-hello { animation: slideUpFade 0.6s ease forwards; }
 .animate-start .s2-intro { animation: slideUpFade 0.6s ease 0.2s forwards; }
 .animate-start .s2-contact-tags { animation: slideUpFade 0.6s ease 0.4s forwards; }
@@ -269,92 +188,50 @@
 .animate-start .s2-skills-card { animation: slideUpFade 0.8s ease 0.5s forwards; }
 .animate-start .s2-experience-card { animation: slideUpFade 0.8s ease 0.6s forwards; }
 
-/* Timeline specific animations */
-.animate-start .timeline-connector {
-  animation: growLine 1s ease 1s forwards;
-  width: 0;
-}
-
+.animate-start .timeline-connector { animation: growLine 1s ease 1s forwards; }
 .animate-start .timeline-point:nth-child(1) .dot { animation: popDot 0.4s ease 1.2s forwards; }
 .animate-start .timeline-point:nth-child(2) .dot { animation: popDot 0.4s ease 1.4s forwards; }
 .animate-start .timeline-point:nth-child(3) .dot { animation: popDot 0.4s ease 1.6s forwards; }
 
-/* --- iPhone & Small Device Optimizations --- */
+/* --- Responsive Viewports --- */
+
+/* Tablet Adjustments */
+@media (max-width: 900px) {
+  .s2-grid { grid-template-columns: 1fr; }
+  .s2-hello { font-size: 80px; }
+  .timeline-items { flex-direction: column; gap: 30px; }
+  .timeline-connector { display: none; }
+}
+
+/* iPhone & Mobile Adjustments */
 @media (max-width: 480px) {
   .section2-container {
     padding: 60px 20px;
-    height: auto; /* Allow section to grow if content is tall */
+    height: auto;
     min-height: 100dvh;
   }
 
-  /* 1. Shrink the massive 'Hello' text */
-  .s2-hello {
-    font-size: 70px; /* Reduced from 140px */
-    text-align: center;
-    line-height: 1;
-  }
+  .s2-hello { font-size: 70px; text-align: center; line-height: 1; }
+  .s2-intro { font-size: 15px; text-align: center; margin: 0 auto 30px auto; }
+  
+  .s2-grid { display: flex; flex-direction: column; gap: 30px; }
+  .s2-portrait-card { height: 300px; order: -1; }
+  .skills-grid { grid-template-columns: 1fr; gap: 15px; }
 
-  .s2-intro {
-    font-size: 15px;
-    text-align: center;
-    margin: 0 auto 30px auto;
-  }
-
-  /* 2. Fix the Grid */
-  .s2-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  /* 3. Adjust Portrait */
-  .s2-portrait-card {
-    height: 300px; /* Shorter for mobile */
-    order: -1;     /* Moves photo to the top of the stack */
-  }
-
-  /* 4. Skills Grid - 1 column on small iPhones */
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  /* 5. Timeline - Vertical for iPhone */
   .timeline-items {
     flex-direction: column;
     gap: 25px;
     padding-left: 20px;
-    border-left: 2px solid white; /* Vertical line instead of horizontal */
+    border-left: 2px solid white;
   }
 
-  .timeline-connector {
-    display: none; /* Hide the horizontal line */
-  }
-
-  .timeline-point {
-    position: relative;
-    text-align: left;
-  }
-
-  .dot {
-    position: absolute;
-    left: -28px; /* Align with the vertical border-left */
-    top: 5px;
-    margin-bottom: 0;
-  }
-
-  .s2-contact-tags {
-    justify-content: center;
-  }
+  .timeline-point { position: relative; text-align: left; }
+  .dot { position: absolute; left: -28px; top: 5px; margin-bottom: 0; }
+  .s2-contact-tags { justify-content: center; }
 }
 
-/* Specific fix for iPhone SE (Very narrow) */
+/* iPhone SE (Narrow) */
 @media (max-width: 375px) {
-  .s2-hello {
-    font-size: 60px;
-  }
-  
-  .s2-skills-card, .s2-experience-card {
-    padding: 20px;
-  }
+  .s2-hello { font-size: 60px; }
+  .s2-skills-card, .s2-experience-card { padding: 20px; }
 }
