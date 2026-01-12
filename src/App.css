@@ -1,50 +1,54 @@
 /* src/App.css */
 
-/* 1. Prevent the document from growing wider than the screen */
+/* 1. The "iPhone Guard" */
 html, body {
+  /* Avoid 100vw here; 100% is safer for iOS Safari */
+  width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  /* 'clip' is a newer property that is more aggressive than 'hidden' for Safari */
+  overflow-x: clip; 
   position: relative;
-  /* Use touch-action to prevent rubber-banding in some browsers */
-  touch-action: pan-y; 
+  /* Prevents the 'rubber-band' horizontal bounce on iOS */
+  overscroll-behavior-x: none;
+  touch-action: pan-y;
 }
 
 #root {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .landing-wrapper {
   width: 100%;
-  max-width: 100vw;
-  /* Crucial: hidden here stops children from leaking */
-  overflow-x: hidden; 
+  /* Using 'clip' stops absolute elements (like your big text) from leaking */
+  overflow-x: clip; 
   background-color: #fcfcfc;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-/* 2. Global fix for elements that often cause leaks */
+/* 2. Reset everything to respect the border-box */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* Prevent text from auto-scaling on iPhone orientation change */
+  -webkit-text-size-adjust: 100%;
 }
 
-/* 3. Force all major sections to stay in their lanes */
-section, footer, header, div {
-  max-width: 100%;
+/* 3. The iPhone "DESIGNER" Text Fix */
+/* Large absolute text is the #1 reason for iPhone overflow */
+section, div, h1, span {
+  /* This ensures that even if font-size is 500px, it won't push the screen width */
+  max-width: 100vw;
 }
 
-/* 4. The common culprit: 100vw. Switch it to 100% everywhere */
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Add to App.css to wrap all sections */
-.landing-wrapper {
-  overflow-x: hidden; 
-  width: 100%;
-  position: relative;
+/* 4. Fix for iOS 100vh issues */
+.section1-container {
+  /* min-height: -webkit-fill-available; is better for iOS Safari */
+  height: 100vh;
+  height: 100dvh; /* Dynamic Viewport Height for modern iPhones */
 }
