@@ -238,7 +238,7 @@
 @media (max-width: 430px) {
   .s1-image-area {
     height: 75%;
-    left: -45%;
+    left: -30%;
   }
 
   .s1-text-bold {
@@ -248,7 +248,7 @@
 
   .s1-text-script {
     font-size: 50px;
-    margin-top: 220px;
+    margin-top: 100px;
   }
 
   .s1-subject {
