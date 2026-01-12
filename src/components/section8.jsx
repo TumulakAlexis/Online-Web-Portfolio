@@ -168,7 +168,7 @@ Timeline:
         </div>
 
         <div className="s8-copyright">
-          © 2024 Pold Design. All Rights Reserved.
+          © 2024 Pold Creatives. All Rights Reserved.
         </div>
       </div>
     </footer>

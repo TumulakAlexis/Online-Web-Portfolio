@@ -322,7 +322,7 @@
 
   .s1-text-script {
     font-size: 55px;
-    margin-top: 180px; /* Push script text down to avoid Notch/Dynamic Island */
+    margin-top: 500px; /* Push script text down to avoid Notch/Dynamic Island */
   }
 
   .s1-overlay {
@@ -338,7 +338,7 @@
   
   .s1-text-script {
     font-size: 45px;
-    margin-top: 120px;
+    margin-top: 200px;
   }
 
   .s1-image-area {

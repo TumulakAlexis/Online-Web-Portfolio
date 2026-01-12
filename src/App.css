@@ -1,38 +1,50 @@
 /* src/App.css */
-#root {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  /* Prevent horizontal overflow at the root level */
-  overflow-x: hidden; 
+
+/* 1. Prevent the document from growing wider than the screen */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  /* Use touch-action to prevent rubber-banding in some browsers */
+  touch-action: pan-y; 
 }
 
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.landing-wrapper {
+  width: 100%;
+  max-width: 100vw;
+  /* Crucial: hidden here stops children from leaking */
+  overflow-x: hidden; 
+  background-color: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2. Global fix for elements that often cause leaks */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  /* 100% width is safer than 100vw for mobile to avoid scrollbar width issues */
-  width: 100%; 
-  min-height: 100vh;
-  /* This is the master switch to stop horizontal wobbling */
-  overflow-x: hidden; 
-  position: relative;
+/* 3. Force all major sections to stay in their lanes */
+section, footer, header, div {
+  max-width: 100%;
 }
 
+/* 4. The common culprit: 100vw. Switch it to 100% everywhere */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Add to App.css to wrap all sections */
 .landing-wrapper {
-  width: 100%;
-  /* If this is your main scroll container, keep auto, 
-     but ensure it doesn't leak horizontally */
-  overflow-y: auto;
   overflow-x: hidden; 
-  background-color: #fcfcfc;
-}
-
-html {
-  scroll-behavior: smooth;
+  width: 100%;
+  position: relative;
 }
