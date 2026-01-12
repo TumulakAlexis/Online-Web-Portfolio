@@ -1,0 +1,141 @@
+.section7-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 80px 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.s7-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Layout: Mockups Left, Text Right */
+.s7-main-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.s7-mockups-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.s7-mockup-img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Text Column Styling */
+.s7-text-column {
+  text-align: left;
+}
+
+.s7-title {
+  font-family: 'Inter', sans-serif; /* Use a very heavy/bold font */
+  font-size: clamp(45px, 6vw, 85px);
+  color: #1a2e35;
+  font-weight: 900;
+  margin-bottom: 20px;
+  line-height: 0.9;
+  letter-spacing: -2px;
+}
+
+.s7-description {
+  font-size: 1.1rem;
+  color: #1a2e35;
+  line-height: 1.5;
+  max-width: 450px;
+  font-weight: 600;
+}
+
+/* Expertise Section: Bottom Right Alignment */
+.s7-expertise-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Pushes to the right */
+  margin-top: -20px;
+}
+
+.s7-expertise-title {
+  font-size: clamp(45px, 6vw, 85px);
+  font-weight: 900;
+  color: #1a2e35;
+  margin-bottom: 20px;
+  margin-right: 110px;
+  letter-spacing: -2px;
+}
+
+.s7-expertise-pill {
+  background-color: #0b2428; /* Dark teal/black background */
+  padding: 25px 60px;
+  border-radius: 100px; /* Perfect pill shape */
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.s7-skill {
+  display: flex;
+  flex-direction: row; /* Align icon and text horizontally */
+  align-items: center;
+  gap: 15px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.s7-icon-box {
+  background-color: #ffffff;
+  width: 75px;
+  height: 75px;
+  border-radius: 18px; /* Slightly rounded square */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.s7-icon-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Mobile: Stack everything */
+@media (max-width: 1024px) {
+  .s7-main-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .s7-text-column {
+    order: -1; /* Text first on mobile */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .s7-expertise-section {
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .s7-expertise-pill {
+    padding: 20px 40px;
+    gap: 30px;
+  }
+}

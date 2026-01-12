@@ -24,3 +24,7 @@ body {
   overflow-y: auto;
   background-color: #fcfcfc;
 }
+
+html {
+  scroll-behavior: smooth;
+}

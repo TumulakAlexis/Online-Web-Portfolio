@@ -6,6 +6,15 @@ const Section1 = () => {
   const [animate, setAnimate] = useState(false);
   const sectionRef = useRef(null);
 
+  // Smooth scroll handler
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -26,6 +35,7 @@ const Section1 = () => {
   return (
     <section 
       ref={sectionRef} 
+      id="home" // Added ID for navigation
       className={`section1-container ${animate ? 'animate-start' : ''}`}
     >
       <nav className="s1-nav">
@@ -55,7 +65,12 @@ const Section1 = () => {
           </div>
 
           <div className="s1-cta">
-            <button className="s1-btn">About Me</button>
+            <button 
+              className="s1-btn"
+              onClick={(e) => scrollToSection(e, 'book')}
+            >
+              Book Now
+            </button>
           </div>
 
           <div className="s1-info-right">

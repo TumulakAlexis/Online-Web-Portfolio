@@ -73,3 +73,33 @@
   }
 }
 
+/* ... Keep all your desktop CSS exactly as it is ... */
+
+@media (max-width: 900px) {
+  .section4-container {
+    padding: 60px 5%;
+    height: auto; /* Allows container to grow as tiles stack */
+  }
+
+  .s4-grid {
+    grid-template-columns: 1fr; /* Force single column */
+    grid-template-rows: auto;    /* Let rows grow based on content */
+    gap: 20px;
+  }
+
+  .s4-tile {
+    /* Resetting these ensures all tiles appear in the 1-column stack */
+    grid-column: span 1 !important; 
+    grid-row: auto !important;
+    height: 300px; /* Give the small tiles a visible height on mobile */
+  }
+
+  .tile-video-big {
+    height: 400px; /* Keep the video tile prominent */
+    order: -1;     /* Optional: This moves the video to the TOP of the stack */
+  }
+
+  .pold-logo {
+    font-size: 60px; /* Scale down logo for mobile screens */
+  }
+}
