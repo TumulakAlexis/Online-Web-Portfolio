@@ -35,3 +35,30 @@
   max-height: 100%;
   object-fit: contain;
 }
+
+/* --- MOBILE RESPONSIVE: 2 PER ROW --- */
+@media (max-width: 900px) {
+  .section5-container {
+    padding: 60px 5%;
+    height: auto; /* Allows the container to grow as cards stack */
+  }
+
+  .s5-grid {
+    /* This creates the 2 per row layout */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; /* Slightly smaller gap for mobile screens */
+  }
+
+  .s5-card {
+    padding: 15px; /* Adjust padding so logos stay visible */
+    border-radius: 15px; /* Slightly tighter corners for mobile */
+  }
+}
+
+/* For very small phones, you can keep it 2 per row or drop to 1 */
+@media (max-width: 480px) {
+  .s5-grid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
+  }
+}

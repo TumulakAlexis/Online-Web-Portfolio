@@ -1,0 +1,171 @@
+.section8-container {
+  width: 100%;
+  background-color: #FF4500;
+  padding: 120px 10% 40px 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.s8-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* CTA Styles */
+.s8-cta-content {
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+.s8-main-title {
+  font-family: 'Passion One', sans-serif;
+  font-size: clamp(60px, 12vw, 150px);
+  color: white;
+  font-weight: 700;
+  line-height: 0.9;
+  margin-bottom: 40px;
+  letter-spacing: -2px;
+}
+
+.s8-book-btn {
+  background-color: #F8A202;
+  color: #ffffff;
+  border: none;
+  padding: 20px 60px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  border-radius: 100px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.s8-book-btn:hover {
+  background-color: #fecd72;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Footer Bottom Bar */
+.s8-bottom-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Adjusted for orange background */
+}
+
+/* Main Logo Styling */
+.s8-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.s8-logo-img {
+  height: 45px; /* Adjust based on your logo shape */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Nav Links Styling */
+.s8-nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.s8-nav-links a {
+  text-decoration: none;
+  color: #ffffff; /* White looks better on the orange bg */
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+}
+
+.s8-nav-links a:hover {
+  opacity: 0.7;
+}
+
+/* Social Icons Styling */
+.s8-socials {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.s8-social-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Makes black icons white to stand out on orange */
+  transition: transform 0.3s ease;
+}
+
+.s8-social-icon:hover {
+  transform: scale(1.2);
+}
+
+.s8-copyright {
+  margin-top: 40px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+  .section8-container {
+    padding: 60px 5% 30px 5%;
+  }
+
+  .s8-cta-content {
+    margin-bottom: 60px;
+  }
+
+  .s8-main-title {
+    font-size: 50px;
+    letter-spacing: -1px;
+  }
+
+  .s8-bottom-bar {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .s8-nav-links {
+    flex-direction: row; /* Horizontal as requested */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    order: 2; /* Moves nav below logo */
+  }
+
+  .s8-logo-container {
+    order: 1;
+  }
+
+  .s8-logo-img {
+    height: 35px;
+  }
+
+  .s8-socials {
+    order: 3;
+    justify-content: center;
+    width: 100%;
+    gap: 25px;
+  }
+  
+  .s8-social-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
