@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './section8.css';
 
 // Asset Imports
-import LogoImg from '../assets/logo.png'; 
+import LogoImg from '../assets/logo.png';
 import FBIcon from '../assets/socials/fb.png';
 import IGIcon from '../assets/socials/ig.png';
 import LIIcon from '../assets/socials/li.png';
@@ -69,74 +69,125 @@ Timeline:
               style={{
                 position: 'fixed',
                 inset: 0,
-                background: 'rgba(0,0,0,0.6)',
+                background: 'rgba(0, 0, 0, 0.8)', // Darker overlay for better focus
+                backdropFilter: 'blur(8px)',     // Modern blur effect
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 zIndex: 9999,
+                padding: '20px'
               }}
               onClick={() => setShowModal(false)}
             >
               <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
+                initial={{ y: 50, opacity: 0, scale: 0.95 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                exit={{ y: 20, opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 onClick={(e) => e.stopPropagation()}
                 style={{
-                  background: '#fecd72',
-                  padding: '40px',
-                  borderRadius: '20px',
-                  width: '90%',
-                  maxWidth: '400px',
+                  background: '#ffffff', // Clean white background
+                  padding: '50px 40px',
+                  borderRadius: '30px',
+                  width: '100%',
+                  maxWidth: '450px',
                   textAlign: 'center',
+                  position: 'relative',
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
                 }}
               >
-                <h3 style={{ marginBottom: '20px', color: '#FF4500', }}>Book a Project</h3>
-
-                <input
-                  type="text"
-                  placeholder="Your Name *"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    marginBottom: '12px',
-                    borderRadius: '8px',
-                    border: '1px solid #FF4500',
-                  }}
-                />
-
-                <input
-                  type="email"
-                  placeholder="Your Email *"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    marginBottom: '20px',
-                    borderRadius: '8px',
-                    border: '1px solid #FF4500',
-                  }}
-                />
-
+                {/* Subtle Close Hint */}
                 <button
-                  onClick={handleSend}
+                  onClick={() => setShowModal(false)}
                   style={{
-                    background: '#FF4500',
-                    color: '#fff',
+                    position: 'absolute',
+                    top: '20px',
+                    right: '20px',
+                    background: 'none',
                     border: 'none',
-                    padding: '14px 30px',
-                    borderRadius: '50px',
-                    fontWeight: '700',
+                    fontSize: '24px',
                     cursor: 'pointer',
-                    width: '100%',
+                    color: '#ccc'
                   }}
                 >
-                  SEND REQUEST
+                  ×
                 </button>
+
+                <h3 style={{
+                  fontFamily: "'Passion One', sans-serif",
+                  fontSize: '42px',
+                  color: '#FF4500',
+                  marginBottom: '10px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '-1px'
+                }}>
+                  Let's Work Together
+                </h3>
+
+                <p style={{
+                  fontFamily: "'Inter', sans-serif",
+                  color: '#666',
+                  fontSize: '14px',
+                  marginBottom: '30px'
+                }}>
+                  Tell me about your project and I’ll get back to you within 24 hours.
+                </p>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    style={{
+                      width: '100%',
+                      padding: '16px 20px',
+                      borderRadius: '12px',
+                      border: '1px solid #eee',
+                      background: '#f9f9f9',
+                      fontFamily: "'Inter', sans-serif",
+                      outline: 'none',
+                      fontSize: '15px'
+                    }}
+                  />
+
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    style={{
+                      width: '100%',
+                      padding: '16px 20px',
+                      borderRadius: '12px',
+                      border: '1px solid #eee',
+                      background: '#f9f9f9',
+                      fontFamily: "'Inter', sans-serif",
+                      outline: 'none',
+                      fontSize: '15px'
+                    }}
+                  />
+
+                  <button
+                    onClick={handleSend}
+                    style={{
+                      background: '#FF4500',
+                      color: '#fff',
+                      border: 'none',
+                      padding: '18px',
+                      borderRadius: '12px',
+                      fontWeight: '800',
+                      fontSize: '14px',
+                      letterSpacing: '1px',
+                      cursor: 'pointer',
+                      marginTop: '10px',
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0 10px 20px rgba(255, 69, 0, 0.2)'
+                    }}
+                  >
+                    SEND ENQUIRY
+                  </button>
+                </div>
               </motion.div>
             </motion.div>
           )}
