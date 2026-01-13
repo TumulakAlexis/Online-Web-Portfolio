@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import './section8.css';
 
 // Asset Imports
@@ -21,29 +22,48 @@ const Section8 = () => {
     }
   };
 
-  const handleSend = () => {
-    if (!name || !email) return;
+const handleSend = async () => {
+  if (!name || !email) return;
 
-    const subject = encodeURIComponent('Booking Request');
-    const body = encodeURIComponent(
-      `Hi Pold,
-
-Name: ${name}
-Email: ${email}
-
-I’d like to book your services.
+  const templateParams = {
+    name: name,
+    email: email,
+    message: `I’d like to book your services.
 
 Project Details:
 Budget:
-Timeline:
-`
+Timeline:`
+  };
+
+  try {
+    // 1️⃣ Email to YOU (Booking Notification)
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_NOTIFY_TEMPLATE_ID,
+      templateParams,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     );
 
-    window.location.href = `mailto:alexistumulak26@gmail.com?subject=${subject}&body=${body}`;
+    // 2️⃣ Auto-reply Email to CLIENT
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID,
+      templateParams,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
+
     setShowModal(false);
     setName('');
     setEmail('');
-  };
+
+  } catch (error) {
+    console.error('EmailJS Error:', error);
+    alert('Failed to send message. Please try again.');
+  }
+};
+
+
+
 
   return (
     <footer id="contact" className="section8-container">
@@ -145,6 +165,7 @@ Timeline:
                       borderRadius: '12px',
                       border: '1px solid #eee',
                       background: '#f9f9f9',
+                      color: '#FF4500',
                       fontFamily: "'Inter', sans-serif",
                       outline: 'none',
                       fontSize: '15px'
@@ -162,6 +183,7 @@ Timeline:
                       borderRadius: '12px',
                       border: '1px solid #eee',
                       background: '#f9f9f9',
+                      color: '#FF4500',
                       fontFamily: "'Inter', sans-serif",
                       outline: 'none',
                       fontSize: '15px'
