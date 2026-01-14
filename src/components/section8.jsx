@@ -161,7 +161,7 @@ Timeline:
             <a href="https://www.instagram.com/mlifecreatives" target="_blank" rel="noreferrer">
               <img src={IGIcon} alt="Instagram" className="s8-social-icon" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/alexistumulak" target="_blank" rel="noreferrer">
               <img src={LIIcon} alt="LinkedIn" className="s8-social-icon" />
             </a>
           </div>
